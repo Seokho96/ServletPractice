@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<h1>송부 정부의 입력</h1>
+
+<form id="sendFrm">
+이&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;름:&nbsp;&nbsp;<input type="text" name="name" id="_name" size="20">
+<br><br>
+우편번호:&nbsp;&nbsp;<input type="text" name="stNum1" size="10" maxlength="3">&nbsp;-&nbsp;<input type="text" name="stNum2" size="10" maxlength="3">
+&nbsp;&nbsp;<button type="button">주소변환</button>
+<br><br>
+주소:&nbsp;<textarea rows="2" cols="50" name="address"></textarea>
+<br><br>
+배달시간:&nbsp;<select name="trans" id="multiple">
+       <option value="0" selected="selected">지정하지 않음</option>
+       <option value="10">10:00 ~ 12:00</option>
+       <option value="12">12:00 ~ 15:00</option>
+       <option value="15">15:00 ~ 17:00</option>
+       <option value="17">17:00 ~ 20:00</option>
+       </select>
+       <br><br>
+영수증 요청:&nbsp;<input type="checkbox" name="money">
+<br><br>
+매거진 수신:&nbsp;
+<input type="radio" name="maga" value="신청" checked="checked">신청
+<input type="radio" name="maga" value="신청하지않음">신청하지 않음
+<br><br>
+
+<button type="button" id="btn">전송</button>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$("*").focus(function () {
+		$(this).css("background-color", "gray")
+	});
+	$("*").blur(function () {
+		$(this).css("background-color", "#ffffff")
+	});
+	$("#btn").on("click", function () {
+		
+		if( $("#_name").val()== ""){
+			alert("이름을 기입해 주십시오");
+		}
+		else{
+			$("#sendForm").attr("action", "NewFileAnswer.jsp");
+			$("#sendFrm").submit("target", "_self");
+			$("#sendFrm").submit();
+		}
+	});
+});
+
+
+</script>
+</form>
+</body>
+</html>

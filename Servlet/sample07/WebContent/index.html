@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+<!-- 
+      web(client)      ---- >   Java(Server)
+      
+      <a href="hello?name=홍길동&        String name = request.getparameter("name"); 
+  자바스크립트로 접근
+      <form action="hello" method="post">
+         <input type="text" name="name" value="홍길동">
+         </form>                                      request.getparameter("name");       
+ 
+        <input type="text" id="name" value="홍길동">
+        <button type="button" onclick="btnFunc()">버튼</button> 
+        <script>
+        function btnFunc(){
+             let name = document.getElementById("name") 
+             location.href = "hello?name=" + name;
+        }
+        </script>
+ 
+        <form name="frm">
+           <input type="text" id="name" value="홍길동">
+         </form>
+           <button type="button" onclick="btnFunc()">버튼</button>
+       <script>
+        function btnFunc(){
+         let name = document.frm.name.value; 
+         location.href = "hello?name=" + name;
+         </script>
+         
+        --JQuery로 접근--
+        
+        <input type="text" id="name" value="홍길동">
+        <button type="button" onclick="btnFunc()">버튼</button>
+         
+        <script>
+        $(document).ready(function(){
+             $('btn').click(function(){
+                location.href = "hello?name" + $(#name).val();
+             });
+        });
+        </script>
+        
+         <form id="frm">
+           <input type="text" id="name" value="홍길동">
+         </form>
+           <button type="button" id="btn">버튼</button>
+        
+        <script>
+        $(function(){
+           $('#btn').on("click", function(){
+                   //빈칸, 글자수
+                 $('#frm').attr("action","hello").submit();     
+           });
+         </script>
+           
+        Web   ---- >   Java                ---- >  DB
+                       JavaBean(Dao)     MVC model1      
+                       Controller        MVC model2  --- > Spring
+                       
+                       
+        Java(Servlet)               ---- >      Web(client)
+                                    ---- >      Java(Servlet)
+        response.sendRedirect("sampleServlet");
+        response.sendRedirect("sample.html");   ->   Ajax(JQuery)(유일하게 html을 받을 수 있음)
+        response.sendRedirect("sample.jsp");
+        response.sendRedirect("sample.jsp?age=24"); 
+        response.sendRedirect("sampleServlet?age=24");
+        
+        //짐싸!
+        request.setAttribute("지정 문자열", Object);
+        
+        request.RequestDispatcher.forward("sample.jsp(가고자하는 JSP명)");
+                        
+                                         Object obj = request.getAttribue("지정 문자열");
+                        
+ -->
+ 
+ <form id="frm" method="post">
+ <table>
+  <tr>
+      <td>이름</td>
+    <td>
+    <input type="text" id="_name" name="name" size="20" placeholder="이름">
+    </td>
+  </tr>
+ <tr>
+   <td>나이</td>
+   <td>
+     <input type="text" id="_age" name="age" size="5" placeholder="나이">
+     </td>
+     </tr>
+ </table>
+ <button type="button" id="btn">전송</button>
+ </form>
+   <!-- 
+       index.html -- > HelloServlet -- >  SampleServlet  -- > detail.jsp
+        name           Object
+                       setAttribute        getAttribute    
+    -->
+   <script type="text/javascript">
+   $(document).ready(function() {
+   	    $('#btn').click(function() {
+   	    	if($('#_name').val() == ''){
+   	    		alert("이름을 입력해주세요");
+   	    		$('#_name').focus();
+   	    	}
+   	    	else if($('#_age').val() == ''){
+   	    		alert("나이를 입력해주세요");
+   	    		$('#_age').focus();
+   	    	}
+   	    	else{
+   	    	 	$('#frm').attr('action', 'hello').submit();
+   	    	}
+   	    	
+   	    });
+   });
+   
+   </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

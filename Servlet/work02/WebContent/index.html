@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+<!-- 
+ name text
+ age select
+  성별 radio
+  취미 check
+
+---------------HelloServlet
+-- 여성 사이트로 이동
+name age 취미  -> Dto -> session
+sendRedirect
+
+-- 남성 사이트로 이동
+ name age 취미  -> Dto -> Request.setAttribute
+ forward
+ 
+ -------------------- 정보 출력
+ ---------- LadyServlet
+ ---------- ManServlet
+ -->
+
+<form id="frm" method="get">
+
+<h3>이름</h3>
+<input type="text" id="_name" placeholder="이름" name="name"><br><br>
+
+<h3>연령대</h3><select id="_age" name="age">
+<option value="10대">10대</option>
+<option value="20대">20대</option>
+<option value="30대">30대</option>
+<option value="40대">40대</option>
+<option value="50대">50대</option>
+<option></option>
+</select> <br><br>
+
+<h3>성별</h3> <input type="radio" id="_gender" value="남성" checked="checked" name="gender">남성<input type="radio" id="_gender" value="여성" name="gender">여성
+<br><br>
+<div>
+<h3>취미</h3>
+
+<input type="checkbox" id="_hobby" checked="checked" value="영화감상" name="hobby">영화감상
+<input type="checkbox" id="_hobby" value="책읽기" name="hobby">책읽기
+<input type="checkbox" id="_hobby" value="음악감상" name="hobby">음악감상
+<input type="checkbox" id="_hobby" value="산책" name="hobby">산책
+</div><br><br>
+
+<button type="button" id="btn">완료</button>
+
+</form>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+	$('#btn').click(function() {
+	     $('#frm').attr('action', 'hello').submit();	
+	});
+});
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
